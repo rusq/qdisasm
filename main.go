@@ -11,7 +11,10 @@ import (
 	"golang.org/x/arch/x86/x86asm"
 )
 
-var bits = flag.Int("bits", 32, "16, 32 or 64")
+var (
+	bits = flag.Int("bits", 32, "16, 32 or 64")
+	org  = flag.Uint64("org", 0x0, "set origin")
+)
 
 func main() {
 	flag.Parse()
@@ -38,7 +41,7 @@ func main() {
 
 	tw := tabwriter.NewWriter(os.Stdout, 0, 0, 1, ' ', 0)
 	defer tw.Flush()
-	var pc uint64
+	var pc uint64 = *org
 	for len(CODE) > 0 {
 		instr, err := x86asm.Decode(CODE, *bits)
 		if err != nil {
