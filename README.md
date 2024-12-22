@@ -27,4 +27,4 @@ Sample output:
 
 [x86asm][1] is MIT-licensed: Copyright 2015 The Go Authors.
 
-[1]: golang.org/x/arch/x86/x86asm 
+[1]: https://golang.org/x/arch/x86/x86asm 
